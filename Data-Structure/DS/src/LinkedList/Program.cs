@@ -9,7 +9,7 @@ namespace LinkedList
     {
         public static void Main(string[] args)
         {
-         
+
             LinkedList<int> list = new LinkedList<int>();
             list.AddAtLast(1);
             list.AddAtLast(2);
@@ -17,6 +17,7 @@ namespace LinkedList
             list.AddAtStart(3);
             list.AddAtStart(4);
             list.Display();
+            Console.WriteLine($"Count : {list.GetCount()}");
         }
     }
 
@@ -53,11 +54,24 @@ namespace LinkedList
         public void Display()
         {
             Node<T> current = Head;
-            while(current.Next!=null)
+            while (current.Next != null)
             {
                 current = current.Next;
                 Console.WriteLine(current.Value);
-              
+
+            }
+        }
+
+        public int GetCount()
+        {
+            if (Head == null || Head.Next == null)
+            {
+                return 0;
+            }
+            else
+            {
+                Head = Head.Next;
+                return 1 + GetCount();
             }
         }
     }
