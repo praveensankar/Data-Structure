@@ -17,7 +17,9 @@ namespace LinkedList
             list.AddAtStart(3);
             list.AddAtStart(4);
             list.Display();
-            Console.WriteLine($"Count : {list.GetCount()}");
+            LinkedList<int> newList = list;
+             list.SwapNodes(1, 2);
+            list.Display();
         }
     }
 
