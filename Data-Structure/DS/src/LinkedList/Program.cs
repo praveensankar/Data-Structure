@@ -20,6 +20,8 @@ namespace LinkedList
             LinkedList<int> newList = list;
              list.SwapNodes(1, 2);
             list.Display();
+            list.Reverse();
+            list.Display();
         }
     }
 

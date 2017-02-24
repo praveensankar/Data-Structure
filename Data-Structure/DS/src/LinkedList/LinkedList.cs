@@ -112,6 +112,26 @@
 
         }
 
+        public void Reverse()
+        {
+            Node<T> previous = null, current = Head.Next, next = Head.Next;
+           
+            if(current.Next==null)
+            {
+                return;
+            }
+            while(next!=null)
+            {
+                next = next.Next;
+                current.Next = previous;
+                previous = current;
+                if(next!=null)
+                current = next;
+            }
+
+            Head.Next = current;
+        }
+
        
     }
 
