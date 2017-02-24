@@ -82,5 +82,8 @@
 -r:"C:\Users\609662906\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\609662906\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\609662906\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
+"C:\Users\609662906\Desktop\DataStructure\Data-Structure\DS\src\LinkedList\LinkedList.cs"
+"C:\Users\609662906\Desktop\DataStructure\Data-Structure\DS\src\LinkedList\Node.cs"
+"C:\Users\609662906\Desktop\DataStructure\Data-Structure\DS\src\LinkedList\NodeFactory.cs"
 "C:\Users\609662906\Desktop\DataStructure\Data-Structure\DS\src\LinkedList\Program.cs"
 "C:\Users\609662906\Desktop\DataStructure\Data-Structure\DS\src\LinkedList\Properties\AssemblyInfo.cs"
