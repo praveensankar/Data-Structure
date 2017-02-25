@@ -11,14 +11,20 @@
         public LinkedList(NodeFactory<T> nodeFactory)
         {
             _nodeFactory = nodeFactory;
-            Head = _nodeFactory.GenerateNode();
+            Head = _nodeFactory.GenerateNode(this) as Node<T>;
             Current = Head;
+        }
 
+        public LinkedList()
+        {
+            _nodeFactory = new NodeFactory<T>();
+            Head = _nodeFactory.GenerateNode(this) as Node<T>;
+            Current = Head;
         }
 
         public void AddAtLast(T Value)
         {
-            Node<T> newNode = _nodeFactory.GenerateNode();
+            Node<T> newNode = _nodeFactory.GenerateNode(this) as Node<T>;
             newNode.Value = Value;
             Current.Next = newNode;
             Current = newNode;
@@ -27,7 +33,7 @@
 
         public void AddAtStart(T Value)
         {
-            Node<T> newNode = _nodeFactory.GenerateNode();
+            Node<T> newNode = _nodeFactory.GenerateNode(this) as Node<T>;
             newNode.Value = Value;
             newNode.Next = Head.Next;
             Head.Next = newNode;
@@ -43,6 +49,40 @@
                 Console.Write(current.Value + "\t");
             }
             Console.WriteLine();
+        }
+
+        internal void RecursiveSortedrMerge(ref LinkedList<T> result, LinkedList<T> l1, LinkedList<T> l2)
+        {
+            result.Current = result.Head.Next;
+            l1.Current = l1.Head.Next;
+            l2.Current = l2.Head.Next;
+            SortedMergeRecursive(ref result, l1, l2);
+        }
+
+        private Node<T> SortedMergeRecursive(ref LinkedList<T> result ,LinkedList<T> list1,
+            LinkedList<T> list2)
+        {
+            //base cases
+            if (list1.Current == null)
+                return list2.Current;
+            if (list2.Current == null)
+                return list1.Current;
+            if(Convert.ToInt32(list1.Current.Value.ToString())<=Convert.ToInt32(list2.Current.Value))
+            {
+                result.Current = list1.Current;
+                result.Current = result.Current.Next;
+                list1.Current = list1.Current.Next;
+                result.Current.Next = SortedMergeRecursive(ref result,list1,list2);
+            }
+            else
+            {
+                result.Current = list2.Current;
+                result.Current = result.Current.Next;
+                list2.Current = list2.Current.Next;
+                result.Current.Next = SortedMergeRecursive(ref result, list1, list2);
+
+            }
+            return result.Head;
         }
 
         public int GetCount(Node<T> node)
@@ -137,7 +177,7 @@
             ReverseRecursive(Head.Next);
         }
 
-        public void ReverseRecursive(Node<T> head)
+        private void ReverseRecursive(Node<T> head)
         {
             //empty list
             if(head==null)
@@ -166,7 +206,46 @@
             first.Next = null;
         }
 
-       
+       public LinkedList<T> SoretedMerge(LinkedList<T> firstList, LinkedList<T> secondList)
+        {
+            if(firstList==null&&secondList==null)
+            {
+                return null;
+            }
+            firstList.Current = firstList.Head.Next;
+            secondList.Current = secondList.Head.Next;
+            LinkedList<T> result= new LinkedList<T>(_nodeFactory);
+            while(true)
+            {
+                if(firstList.Current==null)
+                {
+                    result.Current.Next = secondList.Current;
+                    break;
+                }
+                
+
+                if(secondList.Current==null)
+                {
+                    result.Current.Next = firstList.Current;
+                    break;
+                }
+                if(Convert.ToInt32(firstList.Current.Value.ToString())<= Convert.ToInt32(secondList.Current.Value.ToString()))
+                {
+                    result.Current.Next = firstList.Current;
+                    result.Current = result.Current.Next;
+                    firstList.Current = firstList.Current.Next;
+                }
+                else
+                {
+                    result.Current.Next = secondList.Current;
+                    result.Current = result.Current.Next;
+                    secondList.Current = secondList.Current.Next;
+                }
+
+            }
+            return result;
+        }
+      
     }
 
 
