@@ -35,5 +35,24 @@ namespace LinkedList.OtherApproach
             }
             return result;
         }
+
+        internal static Node<T> ReverseKNodes<T>(Node<T> head, int key)
+        {
+            Node<T> current = head, prev = null, next = null;
+            int count = 0;
+            while (current!=null&&count<key)
+            {
+                next = current.Next;
+                current.Next = prev;
+                prev = current;
+                current = next;
+                count++;
+            }
+            if(next!=null)
+            {
+                head.Next = ReverseKNodes(next, key);
+            }
+            return prev;
+        }
     }
 }

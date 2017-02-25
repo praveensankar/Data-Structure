@@ -46,6 +46,7 @@
             list.Display("first list");
             list2.Display("Second list");
             list.SortedMergeRecursive(list, list2);
+            list.ReverseKNodesRecursive(5);
             
         }
     }

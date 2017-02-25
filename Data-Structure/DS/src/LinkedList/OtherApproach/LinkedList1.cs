@@ -46,6 +46,11 @@
             Display(result);
         }
 
+        public void ReverseKNodesRecursive(int key)
+        {
+            Node<T> result = Node<T>.ReverseKNodes(head,key);
+            Display(result);
+                }
         
     }
 }
