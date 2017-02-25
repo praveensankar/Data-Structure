@@ -47,7 +47,9 @@
             list2.Display("Second list");
             list.SortedMergeRecursive(list, list2);
             list.ReverseKNodesRecursive(5);
-            
+            Console.Write("Enter the position : ");
+            int position = Convert.ToInt32(Console.ReadLine());
+            list.Display(position);
         }
     }
 
