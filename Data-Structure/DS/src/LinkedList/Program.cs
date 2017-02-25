@@ -22,6 +22,8 @@ namespace LinkedList
             list.Display();
             list.Reverse();
             list.Display();
+            list.RecursiveReverse();
+            list.Display();
         }
     }
 

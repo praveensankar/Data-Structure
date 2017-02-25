@@ -131,6 +131,40 @@
 
             Head.Next = current;
         }
+        public void RecursiveReverse()
+        {
+            if(Head.Next!=null)
+            ReverseRecursive(Head.Next);
+        }
+
+        public void ReverseRecursive(Node<T> head)
+        {
+            //empty list
+            if(head==null)
+            {
+                return;
+            }
+
+            Node<T> first = head;
+            Node<T> rest = head.Next;
+
+            //if the list has only one node return
+            if(rest==null)
+            {
+                return;
+            }
+
+            if(rest.Next!=null)
+            {
+                ReverseRecursive(rest);
+            }
+            else
+            {
+                Head.Next = rest;
+            }
+            rest.Next = first;
+            first.Next = null;
+        }
 
        
     }
