@@ -10,8 +10,19 @@ namespace Stack
         public static void Main(string[] args)
         {
             Stack<int> stack = new Stack<int>();
-            stack.Push(5);
-            Console.WriteLine(stack.Top());
+            while (true)
+            {
+
+                Console.Write("\nEnter the infix expression : ");
+                string infix = Console.ReadLine();
+                Console.Write("Postfix expression : ");
+                stack.InfixToPostfix(infix);
+                Console.Write("Enter y to continue : ");
+                string option = Console.ReadLine();
+                if (option != "y")
+                    break;
+                
+            }
         }
     }
 }
