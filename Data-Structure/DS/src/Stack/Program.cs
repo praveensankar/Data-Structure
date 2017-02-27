@@ -23,8 +23,14 @@ namespace Stack
                 string option = Console.ReadLine();
                 if (option != "y")
                     break;
+
+               
                 
             }
+
+            int[] list = { 50, 20, 30, 40 };
+
+            stack.NextGreaterElement(list);
         }
     }
 }

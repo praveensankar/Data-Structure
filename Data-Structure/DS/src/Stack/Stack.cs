@@ -162,6 +162,47 @@
             return result.Pop();
         }
 
+        public void NextGreaterElement(int[] list)
+        {
+            Stack<int> stack = new Stack<int>();
+
+            if (list.Length < 0)
+            {
+                Console.WriteLine("Empty array");
+                return;
+            }
+
+            int length = list.Length;
+            stack.Push(list[0]);
+            for (int i = 1; i < length; i++)
+            {
+                int next = list[i];
+
+                while (true)
+                {
+                    int top = stack.Pop();
+                    if (next > top)
+                    {
+                        Console.WriteLine("{0} -->  {1}", top, next);
+                    }
+                    else
+                    {
+                        stack.Push(top);
+                        break;
+                    }
+                    if (stack.IsEmpty())
+                        break;
+
+                }
+                stack.Push(next);
+            }
+
+            while(!stack.IsEmpty())
+            {
+                Console.WriteLine($"{stack.Pop()} --> -1");
+            }
+        }
+
         private long Evaluate(long l,long r,char op)
         {
             switch(op)
