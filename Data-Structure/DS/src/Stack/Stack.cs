@@ -217,6 +217,39 @@
             }
         }
 
+        public void Sort()
+        {
+                if(!IsEmpty())
+            {
+                T temp = Pop();
+                Sort();
+                SortedInsert(temp);
+            }
+        }
+
+        public void Display()
+        {
+            int index =Convert.ToInt32( top);
+            for(;index>=0;index--)
+            {
+                Console.Write(array[index]+"\t");
+            }
+            Console.WriteLine();
+        }
+        private void SortedInsert(T element)
+        {
+            if(IsEmpty()|| Convert.ToInt32(element.ToString())> Convert.ToInt32(Top().ToString()))
+            {
+                Push(element);
+            }
+            else
+            {
+                T temp = Pop();
+                SortedInsert(element);
+                Push(temp);
+            }
+        }
+
         private bool IsEmpty()
         {
             return (top < 0) ? true : false;
