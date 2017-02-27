@@ -26,6 +26,13 @@
             }
             array[++top] = data;
         }
+        public void Push(params T[] data)
+        {
+            foreach(var item in data)
+            {
+                Push(item);
+            }
+        }
 
         public T Pop()
         {
@@ -236,6 +243,24 @@
             }
             Console.WriteLine();
         }
+
+        public void CalculateSpan(int[] price,out int[] span)
+        {
+            int length = price.Length;
+            span = new int[length];
+            span[0] = 1;
+            Stack<int> st = new Stack<int>();
+            st.Push(0);
+            for (int i=1;i<length;i++)
+            {
+                while(!st.IsEmpty()&&(price[st.Top()]<=price[i]))
+                {
+                    st.Pop();
+                }
+                span[i] = st.IsEmpty() ? (i + 1) : (i - st.Top());
+                st.Push(i);
+            }
+        }
         private void SortedInsert(T element)
         {
             if(IsEmpty()|| Convert.ToInt32(element.ToString())> Convert.ToInt32(Top().ToString()))
@@ -250,6 +275,10 @@
             }
         }
 
+        private void Clear()
+        {
+            top = -1;
+        }
         private bool IsEmpty()
         {
             return (top < 0) ? true : false;

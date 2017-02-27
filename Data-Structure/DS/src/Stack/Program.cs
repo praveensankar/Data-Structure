@@ -32,13 +32,12 @@ namespace Stack
 
             //stack.NextGreaterElement(list);
 
-            stack.Push(1);
-            stack.Push(2);
-            stack.Push(3);
-            stack.Push(1);
-            stack.Display();
-            stack.Sort();
-            stack.Display();
+            int[] span;
+            stack.CalculateSpan(new int[] { 100, 80, 60, 70, 60, 75, 85 }, out  span);
+            foreach(int s in span)
+            {
+                Console.Write(s);
+            }
         }
     }
 }
