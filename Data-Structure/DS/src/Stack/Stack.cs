@@ -50,7 +50,7 @@
 
 
 
-        public void InfixToPostfix(String infix)
+        public String InfixToPostfix(String infix)
         {
             char[] expression = infix.ToCharArray();
             Stack<char> temp = new Stack<char>();
@@ -79,7 +79,7 @@
                             if (temp.IsEmpty())
                             {
                                 Console.WriteLine("Invalid expression");
-                                return;
+                                return null;
                             }
                             char c = temp.Pop();
                             if(c=='(')
@@ -106,7 +106,7 @@
                                 break;
                             }
                             char c = temp.Pop();
-                            Console.Write(c);
+                            result.Append(c);
                             if (GetPrecedence(expression[i]) > GetPrecedence(c))
                             {
                                 temp.Push(expression[i]);
@@ -121,7 +121,59 @@
 
                 result.Append(temp.Pop());
             }
-            Console.WriteLine(result.ToString());
+            return result.ToString();
+        }
+
+        public long EvaluatePostfix(string expression)
+        {
+            char[] expr = expression.ToCharArray();
+            Stack<long> result = new Stack<long>();
+            foreach (char c in expr)
+            {
+                if(char.IsNumber(c))
+                {
+                    long num =(long) char.GetNumericValue(c);
+                    result.Push(num);
+                }
+                else
+                {
+                    if(result.IsEmpty())
+                    {
+                        Console.WriteLine("Invalid Expression ");
+                        return default(long);
+                    }
+                    long rightOperator = result.Pop();
+
+                    if (result.IsEmpty())
+                    {
+                        Console.WriteLine("Invalid Expression ");
+                        return default(long);
+                    }
+                    long leftOperator = result.Pop();
+                 long answer=Evaluate(leftOperator,rightOperator,c);
+                    result.Push(answer);
+                }
+            }
+             if(result.IsEmpty())
+            {
+                Console.WriteLine("Invalid ");
+                return default(long);
+            }
+            return result.Pop();
+        }
+
+        private long Evaluate(long l,long r,char op)
+        {
+            switch(op)
+            {
+                case '+': return l + r;
+                case '-': return l - r;
+                case '*': return l * r;
+                case '/':return l / r;
+                case '^': return l ^ r;
+                default: Console.WriteLine("Invalid Operator ");
+                    return default(long);
+            }
         }
 
         private bool IsEmpty()
@@ -131,7 +183,7 @@
 
         private bool IsOperand(char c)
         {
-            if(char.IsLetter(c))
+            if(char.IsLetter(c)||char.IsNumber(c))
             {
                 return true;
             }

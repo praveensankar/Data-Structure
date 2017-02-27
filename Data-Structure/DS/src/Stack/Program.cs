@@ -16,7 +16,9 @@ namespace Stack
                 Console.Write("\nEnter the infix expression : ");
                 string infix = Console.ReadLine();
                 Console.Write("Postfix expression : ");
-                stack.InfixToPostfix(infix);
+               string postfix= stack.InfixToPostfix(infix);
+                Console.Write(postfix);
+                Console.WriteLine($"result : {stack.EvaluatePostfix(postfix)}");
                 Console.Write("Enter y to continue : ");
                 string option = Console.ReadLine();
                 if (option != "y")
