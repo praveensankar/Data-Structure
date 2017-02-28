@@ -9,9 +9,7 @@
         public static void Main(string[] args)
         {
             Queue<int> queue = new Queue<int>(100);
-            queue.Enqueue(5);
-            queue.Enqueue(1);
-            queue.Display();
+            queue.MaximumOfSubArrays(3, new[]{ 1, 2, 3, 1, 4, 5, 2, 3, 6 });
         }
     }
 }

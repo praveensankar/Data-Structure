@@ -51,6 +51,16 @@
             return Array[Front];
         }
 
+        public T Top()
+        {
+            if(IsEmpty())
+            {
+                Console.WriteLine("queue is empty");
+                return default(T);
+            }
+            return Array[Front];
+                    }
+
         public void Display()
         {
             int r = Rear;
@@ -67,6 +77,38 @@
              
             }
             Console.WriteLine();
+        }
+
+        public void MaximumOfSubArrays(int size,int[] array)
+        {
+            int length = array.Length;
+            if (length == 0)
+                return;
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(array[0]);
+            int max = array[0];
+            int window_no = 0;
+            for(int i=1;i<length;i++)
+            {
+                if (array[i] > max)
+                {
+                    queue.Dequeue();
+                    max = array[i];
+                }
+                queue.Enqueue(array[i]);
+                if (i == (window_no + size - 1))
+                {
+                    Console.WriteLine(max);
+                    if(max==array[window_no])
+                    {
+                        queue.Dequeue();
+                        max = queue.Top();
+                    }
+                    window_no++;
+                }
+
+               
+            }
         }
         
 
