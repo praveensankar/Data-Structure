@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v1.0": {
       "BinaryTree/1.0.0": {
         "dependencies": {
-          "Queue": "1.0.0"
+          "Queue": "1.0.0",
+          "Stack": "1.0.0"
         },
         "runtime": {
           "BinaryTree.dll": {}
@@ -17,6 +18,11 @@
       "Queue/1.0.0": {
         "runtime": {
           "Queue.dll": {}
+        }
+      },
+      "Stack/1.0.0": {
+        "runtime": {
+          "Stack.dll": {}
         }
       }
     }
@@ -28,6 +34,11 @@
       "sha512": ""
     },
     "Queue/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Stack/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

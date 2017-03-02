@@ -9,7 +9,8 @@
       "type": "platform",
       "version": "1.0.1"
     },
-    "Queue": "1.0.0-*"
+    "Queue": "1.0.0-*",
+    "Stack": "1.0.0-*"
   },
 
   "frameworks": {

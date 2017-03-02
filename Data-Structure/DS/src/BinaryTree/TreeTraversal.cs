@@ -20,9 +20,45 @@
         {
             if (root == null)
                 return;
-            PreOrder(root.Left);
+            if(root.Left!=null)
+            InOrder(root.Left);
             Console.Write(root.Data + "\t");
-            PreOrder(root.Right);
+            if(root.Right!=null)
+            InOrder(root.Right);
+        }
+
+        public static void InOrderIterative(Node<T> root)
+        {
+            if (root == null)
+            {
+                Console.WriteLine("tree is empty");
+                return;
+            }
+            Node<T> current = root;
+            Stack<Node<T>> stack = new Stack<Node<T>>();
+           
+            while(true)
+            {
+                if(current!=null)
+                {
+                    stack.Push(current);
+                    current = current.Left;
+                }
+                else
+                {
+                    if(stack.Count!=0)
+                    {
+                        current = stack.Pop();
+                        Console.Write(current.Data + "\t");
+                        current = current.Right;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            
         }
 
         public static void PostOrder(Node<T> root)

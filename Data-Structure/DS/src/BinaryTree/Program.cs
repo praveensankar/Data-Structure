@@ -21,6 +21,13 @@
             TreeTraversal<int>.LevelOrder(tree);
             int height = 0;
             Console.WriteLine("\nDiameter of a tree : " + tree.DiameterOptimized(tree.Root,ref height ));
-        }
+            Console.WriteLine("\n Inorder without recursion : ");
+            TreeTraversal<int>.InOrderIterative(tree.Root);
+            char[] inorder= new char[]{'D', 'B', 'E', 'A', 'F', 'C'};
+  char[] pre = { 'A', 'B', 'D', 'E', 'C', 'F' };
+            Node<char> root = BuildTreeFromTraversal<char>.BuildTree(inorder, pre, 0, inorder.Length-1);
+            TreeTraversal<char>.InOrder(root);
+
+    }
     }
 }

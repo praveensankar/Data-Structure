@@ -2004,6 +2004,19 @@
         "runtime": {
           "netcoreapp1.0/Queue.dll": {}
         }
+      },
+      "Stack/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.0",
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.1"
+        },
+        "compile": {
+          "netcoreapp1.0/Stack.dll": {}
+        },
+        "runtime": {
+          "netcoreapp1.0/Stack.dll": {}
+        }
       }
     }
   },
@@ -6603,12 +6616,18 @@
       "type": "project",
       "path": "../Queue/project.json",
       "msbuildProject": "../Queue/Queue.xproj"
+    },
+    "Stack/1.0.0": {
+      "type": "project",
+      "path": "../Stack/project.json",
+      "msbuildProject": "../Stack/Stack.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.App >= 1.0.1",
-      "Queue >= 1.0.0-*"
+      "Queue >= 1.0.0-*",
+      "Stack >= 1.0.0-*"
     ],
     ".NETCoreApp,Version=v1.0": []
   },
