@@ -82,6 +82,7 @@
 -r:"C:\Users\609662906\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\609662906\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\609662906\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
+-r:"C:\Users\609662906\Desktop\DataStructure\Data-Structure\DS\src\Queue\bin\Debug\netcoreapp1.0\Queue.dll"
 "C:\Users\609662906\Desktop\DataStructure\Data-Structure\DS\src\BinaryTree\BinaryTree.cs"
 "C:\Users\609662906\Desktop\DataStructure\Data-Structure\DS\src\BinaryTree\Node.cs"
 "C:\Users\609662906\Desktop\DataStructure\Data-Structure\DS\src\BinaryTree\Program.cs"

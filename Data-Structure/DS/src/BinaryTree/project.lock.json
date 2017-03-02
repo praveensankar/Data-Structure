@@ -1991,6 +1991,19 @@
         "runtime": {
           "lib/netstandard1.3/_._": {}
         }
+      },
+      "Queue/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.0",
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.1"
+        },
+        "compile": {
+          "netcoreapp1.0/Queue.dll": {}
+        },
+        "runtime": {
+          "netcoreapp1.0/Queue.dll": {}
+        }
       }
     }
   },
@@ -6585,11 +6598,17 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
       ]
+    },
+    "Queue/1.0.0": {
+      "type": "project",
+      "path": "../Queue/project.json",
+      "msbuildProject": "../Queue/Queue.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microsoft.NETCore.App >= 1.0.1"
+      "Microsoft.NETCore.App >= 1.0.1",
+      "Queue >= 1.0.0-*"
     ],
     ".NETCoreApp,Version=v1.0": []
   },

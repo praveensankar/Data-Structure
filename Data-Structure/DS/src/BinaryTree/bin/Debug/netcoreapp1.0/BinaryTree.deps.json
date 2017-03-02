@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v1.0": {
       "BinaryTree/1.0.0": {
+        "dependencies": {
+          "Queue": "1.0.0"
+        },
         "runtime": {
           "BinaryTree.dll": {}
+        }
+      },
+      "Queue/1.0.0": {
+        "runtime": {
+          "Queue.dll": {}
         }
       }
     }
   },
   "libraries": {
     "BinaryTree/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Queue/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
